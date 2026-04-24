@@ -1,0 +1,39 @@
+cycle:
+  total_s: 48.0
+  phase_durations_s:
+    mold_close: 4.5
+    injection: 3.0
+    compression_pack: 5.0
+    cooling_charge: 12.0
+    mold_open_extract: 12.0
+    audit_reset: 11.5
+
+hydraulic:
+  clamp_pressure_mpa: 13.8
+  mold_open_stroke_mm: 80.0
+  accumulator_precharge_psi: 2500
+
+thermal:
+  setpoints_c:
+    b_zone1: 260
+    b_zone2: 265
+    b_zone3: 270
+    b_zone4: 270
+    mold: 60
+  cutoff_c: 290.0
+
+injection:
+  screw_rpm: 1680
+  shot_grams: 180
+  vp_switchover_fill_pct: 95.0
+
+preflight:
+  nir_max_ppm: 55
+  dew_point_max_c: -40
+  dew_point_sustain_min: 90
+
+audit:
+  weight_target_g: 180.0
+  weight_tolerance_g: 2.0
+  haze_min_score: 0.85
+  pressure_band_pct: 5.0

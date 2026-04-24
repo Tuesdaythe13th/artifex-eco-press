@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CyclePacket",
+  "description": "Rev 8.4 telemetry packet emitted by Portenta H7 per 48s cycle",
+  "type": "object",
+  "properties": {
+    "cycle_id": { "type": "integer", "minimum": 0 },
+    "schema_version": { "type": "integer", "const": 1 },
+    "timestamp_ms": { "type": "integer", "minimum": 0 },
+    "dew_point": { "type": "number", "minimum": -80, "maximum": 25 },
+    "nir_moisture": { "type": "number", "minimum": 0, "maximum": 1000 },
+    "b_zone1_temp": { "type": "number", "minimum": 0, "maximum": 320 },
+    "b_zone2_temp": { "type": "number", "minimum": 0, "maximum": 320 },
+    "b_zone3_temp": { "type": "number", "minimum": 0, "maximum": 320 },
+    "b_zone4_temp": { "type": "number", "minimum": 0, "maximum": 320 },
+    "m_temp": { "type": "number", "minimum": 20, "maximum": 120 },
+    "close_time": { "type": "number", "minimum": 3, "maximum": 6 },
+    "inj_peak_pressure": { "type": "number", "minimum": 0, "maximum": 200000 },
+    "shot_weight": { "type": "number", "minimum": 150, "maximum": 210 },
+    "ai_haze_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "ai_flash_detected": { "type": "boolean" },
+    "reject_code": {
+      "type": "string",
+      "enum": ["OK", "NIR_OUT_OF_SPEC", "DEW_NOT_READY", "WEIGHT_LOW", "WEIGHT_HIGH", "HAZE_FAIL", "FLASH_DETECTED", "PRESSURE_OUT_OF_BAND", "THERMAL_FAULT", "ESTOP", "VOICE_STOP", "GUARD_OPEN", "SERVO_FAULT", "HYDRAULIC_FAULT", "CAMERA_FAULT"]
+    },
+    "crc16": { "type": "integer", "minimum": 0, "maximum": 65535 }
+  },
+  "required": ["cycle_id", "schema_version", "timestamp_ms", "dew_point", "nir_moisture", "b_zone1_temp", "b_zone2_temp", "b_zone3_temp", "b_zone4_temp", "m_temp", "close_time", "inj_peak_pressure", "shot_weight", "ai_haze_score", "ai_flash_detected", "reject_code", "crc16"]
+}

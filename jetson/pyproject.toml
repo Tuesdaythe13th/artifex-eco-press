@@ -1,0 +1,35 @@
+[project]
+name = "artifex-eco-press"
+version = "1.0.0"
+description = "Artifex Eco-Press Jetson Supervisor App"
+requires-python = ">=3.10"
+dependencies = [
+    "pyserial>=3.5",
+    "pydantic>=2.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.29.0",
+    "websockets>=12.0",
+    "PyYAML>=6.0",
+    "numpy>=1.26.0",
+    "structlog>=24.1.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.3.0",
+    "mypy>=1.9.0",
+    "black>=24.2.0"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.mypy]
+strict = true
